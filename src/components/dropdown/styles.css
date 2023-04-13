@@ -1,0 +1,5 @@
+.dropdown-component:not(:hover) .dropdown-component-options {
+  overflow: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
