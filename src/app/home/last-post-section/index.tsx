@@ -1,6 +1,21 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import BackgroundComponent from "@/components/background";
+import YouTubePlayerComponent from "@/components/youtube-player";
 
 export default function HomeLastPostSection() {
+  const [showYoutubePlayer, setShowYouTubePlayer] = useState(false);
+
+  useEffect(() => {
+    if (showYoutubePlayer) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [showYoutubePlayer]);
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center">
       <BackgroundComponent image="https://ldeliberdade.com/posters/recentes/01.jpg" />
@@ -20,7 +35,10 @@ export default function HomeLastPostSection() {
           <i className="fa-solid fa-calendar-day -mr-4"></i>
           <span className="tracking-wide font-semibold">11 abr 2023</span>
         </div>
-        <button className="mt-8 py-3 px-8 rounded text-primary  border border-primary hover:bg-primary hover:text-gray-900 transition-all backdrop-blur-lg">
+        <button
+          className="mt-8 py-3 px-8 rounded text-primary  border border-primary hover:bg-primary hover:text-gray-900 transition-all backdrop-blur-lg"
+          onClick={() => setShowYouTubePlayer(true)}
+        >
           <i className="fa-solid fa-play text-lg mr-2"></i>
           <span className="font-extrabold tracking-wide">Assistir</span>
         </button>
@@ -29,6 +47,9 @@ export default function HomeLastPostSection() {
           em nosso canal para acompanhar nossos vídeos, lançados semanalmente.
         </p>
       </div>
+      {showYoutubePlayer && (
+        <YouTubePlayerComponent videoId="ewcOiwZG7Y4" onClose={() => setShowYouTubePlayer(false)} />
+      )}
     </section>
   );
 }
