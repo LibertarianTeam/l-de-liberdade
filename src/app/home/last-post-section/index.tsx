@@ -24,6 +24,10 @@ export default function HomeLastPostSection() {
           <i className="fa-solid fa-play text-lg mr-2"></i>
           <span className="font-extrabold tracking-wide">Assistir</span>
         </button>
+        <p className="mt-8 font-semibold text-sm text-justify leading-normal tracking-normal md:text-base sm:max-w-md">
+          Não imagine um mundo livre. Torne o mundo livre. Somos uma iniciativa verdadeiramente libertária. Inscreva-se
+          em nosso canal para acompanhar nossos vídeos, lançados semanalmente.
+        </p>
       </div>
     </section>
   );

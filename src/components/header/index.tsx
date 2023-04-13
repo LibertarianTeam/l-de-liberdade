@@ -53,11 +53,11 @@ export default function HeaderComponent() {
   }
 
   return (
-    <header className="header-component fixed top-0 left-0 z-40 w-full px-6 py-2 backdrop-blur-sm bg-gray-900/60">
-      <nav className="header-content flex items-center justify-between gap-4 max-w-7xl mx-auto">
-        <Image className="header-banner w-64 pointer-events-none" src={BannerImage} alt="L de Liberdade" priority />
+    <header className="fixed top-0 left-0 z-40 w-full sm:px-6 px-2 py-2 backdrop-blur-sm bg-gray-900/60">
+      <nav className="flex items-center justify-between gap-4 max-w-7xl mx-auto">
+        <Image className="w-64 pointer-events-none" src={BannerImage} alt="L de Liberdade" priority />
 
-        <ul className="header-links hidden lg:flex gap-6">
+        <ul className="hidden lg:flex gap-6">
           {headerLinks.map((link) => (
             <HeaderLinkComponent link={link} key={link.label} />
           ))}
