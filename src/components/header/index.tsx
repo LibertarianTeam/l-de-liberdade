@@ -53,9 +53,9 @@ export default function HeaderComponent() {
   }
 
   return (
-    <header className="header-component fixed top-0 left-0 w-full px-6 py-2 backdrop-blur-sm bg-gray-900/60">
+    <header className="header-component fixed top-0 left-0 z-40 w-full px-6 py-2 backdrop-blur-sm bg-gray-900/60">
       <nav className="header-content flex items-center justify-between gap-4 max-w-7xl mx-auto">
-        <Image className="header-banner w-64" src={BannerImage} alt="L de Liberdade" priority />
+        <Image className="header-banner w-64 pointer-events-none" src={BannerImage} alt="L de Liberdade" priority />
 
         <ul className="header-links hidden lg:flex gap-6">
           {headerLinks.map((link) => (

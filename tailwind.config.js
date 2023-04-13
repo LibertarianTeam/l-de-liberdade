@@ -10,6 +10,10 @@ module.exports = {
       colors: {
         primary: "#dedd12",
       },
+      screens: {
+        sm: "480px",
+        xs: "320px",
+      },
     },
   },
   plugins: [],

@@ -3,3 +3,18 @@
 @tailwind utilities;
 
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #222;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
