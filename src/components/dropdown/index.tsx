@@ -1,12 +1,14 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import "./styles.css";
 
 export type DropdownComponentOptionT = {
   label: string;
   icon?: string;
   className?: string;
-  action: () => void;
+  to?: string;
+  action?: () => void;
 };
 
 type DropdownComponentPropsT = React.PropsWithChildren & {
@@ -17,6 +19,18 @@ type DropdownComponentPropsT = React.PropsWithChildren & {
 };
 
 export default function DropdownComponent(props: DropdownComponentPropsT) {
+  const router = useRouter();
+
+  const handledOptions = props.options.map((option) => ({
+    ...option,
+    action: () => {
+      if (!option.to) return;
+      if (option.to.includes("http")) return window.open(option.to, "_blank");
+
+      router.push(option.to);
+    },
+  }));
+
   return (
     <div className={`dropdown-component relative inline-block text-left ${props.className}`}>
       <button className={`py-3 px-6 ${props.buttonClass}`}>
@@ -26,7 +40,7 @@ export default function DropdownComponent(props: DropdownComponentPropsT) {
 
       <div className="dropdown-component-options absolute right-0 z-10 pt-2 w-full origin-top-right rounded-md backdrop-blur-sm bg-gray-900/60 shadow-lg ring-1 ring-black ring-opacity-5 transition-all">
         <div className="py-1">
-          {props.options?.map((option) => (
+          {handledOptions.map((option) => (
             <button
               className={`block px-4 py-2 text-sm hover:text-primary transition ${props.optionClass} ${option.className}`}
               key={option.label}

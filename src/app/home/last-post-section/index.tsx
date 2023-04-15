@@ -17,7 +17,7 @@ export default function HomeLastPostSection() {
   }, [showYoutubePlayer]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center">
+    <section className="relative min-h-screen flex flex-col justify-center" id="home-last-post">
       <BackgroundComponent image="https://ldeliberdade.com/posters/recentes/01.jpg" />
       <div className="home-content max-w-7xl sm:p-8 p-4 sm:pt-28 w-full mx-auto">
         <h1 className="uppercase font-extrabold md:max-w-md max-w-xs sm:leading-snug leading-normal tracking-wide md:text-6xl sm:text-4xl text-2xl">
@@ -43,8 +43,9 @@ export default function HomeLastPostSection() {
           <span className="font-extrabold tracking-wide">Assistir</span>
         </button>
         <p className="mt-8 font-semibold text-sm text-justify leading-normal tracking-normal md:text-base sm:max-w-md">
-          Não imagine um mundo livre. Torne o mundo livre. Somos uma iniciativa verdadeiramente libertária. Inscreva-se
-          em nosso canal para acompanhar nossos vídeos, lançados semanalmente.
+          Não imagine um mundo livre. Torne o mundo livre. Somos uma iniciativa verdadeiramente
+          libertária. Inscreva-se em nosso canal para acompanhar nossos vídeos, lançados
+          semanalmente.
         </p>
       </div>
       {showYoutubePlayer && (

@@ -1,61 +1,47 @@
-"use client";
-
 import Image from "next/image";
+import Link from "next/link";
+
 import BannerImage from "@/assets/banner.png";
-import DropdownComponent, { DropdownComponentOptionT } from "../dropdown";
+import DropdownComponent from "../dropdown";
 
-export default function HeaderComponent() {
-  const headerLinks = [
-    { label: "Início", to: "#" },
-    { label: "Novidades", to: "#" },
-    { label: "Top 10", to: "#" },
-    { label: "Loja", to: "#" },
-    { label: "Sobre", to: "#" },
-    { label: "Apoio", to: "#" },
-    { label: "Contato", to: "#" },
-    { label: "Instagram", icon: "fab fa-instagram", to: "https://www.instagram.com/l.de.liberdade/", isNewTab: true },
-    { label: "Twitter", icon: "fab fa-twitter", to: "https://twitter.com/LdeLiberdade1", isNewTab: true },
-    { label: "YouTube", icon: "fab fa-youtube", to: "https://www.youtube.com/@LdeLiberdade", isNewTab: true },
-  ];
+import { headerLinks, registerOptions } from "@/data/header";
 
-  const registerOptions: DropdownComponentOptionT[] = [
-    {
-      label: "YouTube",
-      icon: "fa-brands fa-youtube",
-      action: () => {
-        window.open("https://www.youtube.com/@LdeLiberdade?sub_confirmation=1", "_blank");
-      },
-    },
-    {
-      label: "Rumble",
-      icon: "fa-solid fa-play",
-      action: () => {
-        window.open("https://rumble.com/c/LdeLiberdade", "_blank");
-      },
-    },
-    {
-      label: "Odysee",
-      icon: "fa-brands fa-odysee",
-      action: () => {
-        window.open("https://odysee.com/@LdeLiberdade:a", "_blank");
-      },
-    },
-  ];
+function HeaderLinkComponent({ link }: { link: typeof headerLinks[0] }) {
+  const isExternalLink = link.to.includes("https://");
 
-  function HeaderLinkComponent({ link }: { link: typeof headerLinks[0] }) {
-    return (
-      <li className="header-link-container transition hover:text-primary" title={link.label}>
-        <a className="header-link" href={link.to} target={link.isNewTab ? "_blank" : undefined}>
-          {link.icon ? <i className={link.icon}></i> : <span className="font-bold tracking-wide">{link.label}</span>}
-        </a>
-      </li>
+  function HeaderLinkContentComponent() {
+    return link.icon ? (
+      <i className={link.icon}></i>
+    ) : (
+      <span className="font-bold tracking-wide">{link.label}</span>
     );
   }
 
   return (
+    <li className="header-link-container transition hover:text-primary" title={link.label}>
+      {isExternalLink ? (
+        <a className="header-link" href={link.to} target="_blank">
+          <HeaderLinkContentComponent />
+        </a>
+      ) : (
+        <Link className="header-link" href={link.to} scroll={false}>
+          <HeaderLinkContentComponent />
+        </Link>
+      )}
+    </li>
+  );
+}
+
+export default function HeaderComponent() {
+  return (
     <header className="fixed top-0 left-0 z-40 w-full sm:px-6 px-2 py-2 backdrop-blur-sm bg-gray-900/60">
       <nav className="flex items-center justify-between gap-4 max-w-7xl mx-auto">
-        <Image className="w-64 pointer-events-none" src={BannerImage} alt="L de Liberdade" priority />
+        <Image
+          className="w-64 pointer-events-none"
+          src={BannerImage}
+          alt="L de Liberdade"
+          priority
+        />
 
         <ul className="hidden lg:flex gap-6">
           {headerLinks.map((link) => (
