@@ -16,6 +16,7 @@ type DropdownComponentPropsT = React.PropsWithChildren & {
   buttonClass?: string;
   optionClass?: string;
   options: DropdownComponentOptionT[];
+  hideArrow?: boolean;
 };
 
 export default function DropdownComponent(props: DropdownComponentPropsT) {
@@ -35,10 +36,10 @@ export default function DropdownComponent(props: DropdownComponentPropsT) {
     <div className={`dropdown-component relative inline-block text-left ${props.className}`}>
       <button className={`py-3 px-6 ${props.buttonClass}`}>
         <span className="uppercase">{props.children}</span>
-        <i className="fa-solid fa-chevron-down ml-2"></i>
+        {!props.hideArrow && <i className="fa-solid fa-chevron-down ml-2"></i>}
       </button>
 
-      <div className="dropdown-component-options absolute right-0 z-10 pt-2 w-full origin-top-right rounded-md backdrop-blur-sm bg-gray-900/60 shadow-lg ring-1 ring-black ring-opacity-5 transition-all">
+      <div className="dropdown-component-options absolute min-w-max right-0 z-10 pt-2 w-full origin-top-right rounded-md backdrop-blur-sm bg-gray-900/75 shadow-lg ring-1 ring-black ring-opacity-5 transition-all">
         <div className="py-1">
           {handledOptions.map((option) => (
             <button

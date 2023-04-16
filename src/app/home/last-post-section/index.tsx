@@ -18,7 +18,7 @@ export default function HomeLastPostSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center" id="home-last-post">
-      <BackgroundComponent image="https://ldeliberdade.com/posters/recentes/01.jpg" />
+      <BackgroundComponent image="https://i.ibb.co/6yv4sYz/pna-bg.jpg" />
       <div className="home-content max-w-7xl sm:p-8 p-4 sm:pt-28 w-full mx-auto">
         <h1 className="uppercase font-extrabold md:max-w-md max-w-xs sm:leading-snug leading-normal tracking-wide md:text-6xl sm:text-4xl text-2xl">
           PNA - Uma estratégia evolutivamente estável

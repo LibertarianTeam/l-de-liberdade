@@ -15,7 +15,14 @@ export const footerSocialLinks = [
 ];
 
 export const footerNavLinks = [
-  { label: "Início", url: "/#home-last-post" },
+  {
+    label: "Visão Libertaria",
+    url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjMBtYAahzFrflMYRwQatVMj",
+  },
+  {
+    label: "Tecnologia",
+    url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjNsEr_0klthh-Oxj9mDRDmT",
+  },
   {
     label: "Individualismo",
     url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjPk0yMirbkAjpjBYzKTn3Qp",
@@ -24,7 +31,6 @@ export const footerNavLinks = [
     label: "Cultura",
     url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjPM7KoYJHnmDfyQbMfCook9",
   },
-  { label: "Playlists", url: "https://www.youtube.com/@LdeLiberdade/playlists" },
   {
     label: "Males do Estado",
     url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjOmMn8Y9lC82cwfLSTARpmz",
@@ -41,8 +47,5 @@ export const footerNavLinks = [
     label: "Planos mirabolantes",
     url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjNhASoYKyBl76lnItpsY5lZ",
   },
-  {
-    label: "Visão Libertaria",
-    url: "https://www.youtube.com/playlist?list=PLVHTYODvQvjMBtYAahzFrflMYRwQatVMj",
-  },
+  { label: "Playlists", url: "https://www.youtube.com/@LdeLiberdade/playlists" },
 ];

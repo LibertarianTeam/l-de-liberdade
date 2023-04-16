@@ -58,9 +58,15 @@ export default function HeaderComponent() {
           Inscreva-se
         </DropdownComponent>
 
-        <button className="lg:hidden hover:text-primary transition">
+        <DropdownComponent
+          className="block lg:hidden"
+          buttonClass="rounded"
+          optionClass="font-semibold"
+          options={headerLinks}
+          hideArrow
+        >
           <i className="fa-solid fa-bars text-lg"></i>
-        </button>
+        </DropdownComponent>
       </nav>
     </header>
   );
